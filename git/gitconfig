@@ -1,0 +1,19 @@
+[user]
+  name = Raquel Guimarães
+  email = raquelrag@gmail.com
+
+[core]
+  editor = vim
+
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+  br = branch
+  aa = add --all
+
+  # Gary Bernhardt's custom log function
+  l  = "!source ~/.githelpers && pretty_git_log"
+
+[color]
+  ui = auto
