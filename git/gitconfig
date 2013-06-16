@@ -15,3 +15,5 @@
 	tool = opendiff
 [diff]
 	tool = opendiff
+[push]
+	default = simple
