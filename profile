@@ -1,9 +1,6 @@
-#sets up the color scheme for list export
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
-#sets up the prompt color (currently a green similar to linux terminal)
-export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
+export PS1="\e[32;1m\u@\h: \e[33;1m\w\e[0m\n\\$ "
 
-#sets up proper alias commands when called
 alias ls='ls -G'
 alias ll='ls -hl'
