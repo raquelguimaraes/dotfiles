@@ -7,14 +7,10 @@
 	st = status
 	br = branch
 	aa = add --all
-	amend = commit --amend
+	amend = commit --amend --no-edit
 [core]
 	editor = vim
 [color]
 	ui = auto
-[merge]
-	tool = opendiff
-[diff]
-	tool = opendiff
 [push]
 	default = simple
