@@ -1,4 +1,17 @@
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
-export PS1="\[\e[00;37m\]\n\[\e[0m\]\[\e[00;36m\][\T]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[33;1m\]\w\[\e[0m\]\[\e[00;37m\]\n\\$ \[\e[0m\]"
+BLUE="\[\e[01;36m\]"
+YELLOW="\[\e[33;1m\]"
+RED="\e[01;31m"
+GREEN="\[\e[01;32m\]"
+RESET="\[\e[0m\]"
 
+function parse_git_dirty {
+  if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
+    echo "✗"
+  else
+    echo "✔"
+  fi
+}
+
+export PS1="\n$BLUE[\T] $YELLOW\w$RESET \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"\$(parse_git_dirty)\") ${RESET}\n\$ "
