@@ -1,17 +1,29 @@
 export LSCOLORS=dxfxcxdxbxegedabagacad
 
-BLUE="\[\e[01;36m\]"
-YELLOW="\[\e[33;1m\]"
-RED="\e[01;31m"
-GREEN="\[\e[01;32m\]"
-RESET="\[\e[0m\]"
+function __prompt_command() {
+  local EXIT="$?"
 
-function parse_git_dirty {
+  local BLUE="\[\e[01;36m\]"
+  local YELLOW="\[\e[33;1m\]"
+  local RED="\e[01;31m"
+  local GREEN="\[\e[01;32m\]"
+  local RESET="\[\e[0m\]"
+
+  PS1="\n$BLUE[\T] $YELLOW\w$RESET"
+
   if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
-    echo "✗"
+    PS1+=" ${RED}✗${RESET}"
   else
-    echo "✔"
+    PS1+=" ${GREEN}✔${RESET}"
+  fi
+
+  PS1+="\n"
+
+  if [ $EXIT != 0 ]; then
+    PS1+="${RED}\$ ${RESET}"      # Add red if exit code non 0
+  else
+    PS1+="\$ ${RESET}"
   fi
 }
 
-export PS1="\n$BLUE[\T] $YELLOW\w$RESET \$([[ -n \$(git branch 2> /dev/null) ]] && echo \"\$(parse_git_dirty)\") ${RESET}\n\$ "
+export PROMPT_COMMAND=__prompt_command
