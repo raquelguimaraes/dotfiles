@@ -11,10 +11,12 @@ function __prompt_command() {
 
   PS1="\n$BLUE[\T] $YELLOW\w$RESET"
 
-  if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
-    PS1+=" ${RED}✗${RESET}"
-  else
-    PS1+=" ${GREEN}✔${RESET}"
+  if [[ -n $(git branch 2> /dev/null) ]]; then
+    if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
+      PS1+=" ${RED}✗${RESET}"
+    else
+      PS1+=" ${GREEN}✔${RESET}"
+    fi
   fi
 
   PS1+="\n"
