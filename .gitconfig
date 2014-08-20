@@ -10,6 +10,7 @@
 	amend = commit --amend --no-edit
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	wdiff = diff --word-diff
+	cdiff = diff --cached
 	wshow = show --word-diff
 	pr = pull -r
 [core]
