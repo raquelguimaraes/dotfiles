@@ -3,13 +3,13 @@ export LSCOLORS=dxfxcxdxbxegedabagacad
 function __prompt_command() {
   local EXIT="$?"
 
-  local BLUE="\[\e[01;36m\]"
-  local YELLOW="\[\e[33;1m\]"
-  local RED="\e[01;31m"
-  local GREEN="\[\e[01;32m\]"
-  local RESET="\[\e[0m\]"
+  local CYAN=$(tput setaf 6)
+  local LIME_YELLOW=$(tput setaf 190)
+  local RED=$(tput setaf 1)
+  local GREEN=$(tput setaf 2)
+  local RESET=$(tput sgr0)
 
-  PS1="\n$BLUE[\T] $YELLOW\w$RESET"
+  PS1="\n$CYAN[\T] $LIME_YELLOW\w$RESET"
 
   if [[ -n $(git branch 2> /dev/null) ]]; then
     if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
