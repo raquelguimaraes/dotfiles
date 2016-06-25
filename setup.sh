@@ -4,6 +4,7 @@ function create_sym_links {
     echo "Creating Sym Links"
     ln -sf `pwd`/.bash_prompt ~
     ln -sf `pwd`/.bash_aliases ~
+    ln -sf `pwd`/.gitconfig ~
 }
 
 function add_source_to_profile {
