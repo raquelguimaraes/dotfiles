@@ -9,22 +9,22 @@ function __prompt_command() {
   local GREEN=$(tput setaf 2)
   local RESET=$(tput sgr0)
 
-  PS1="\n$CYAN[\T] $LIME_YELLOW\w$RESET"
+  PS1="\n\[$CYAN\][\T] \[$LIME_YELLOW\]\w\[$RESET\]"
 
   if [[ -n $(git branch 2> /dev/null) ]]; then
     if [[ $(git status 2> /dev/null | tail -n1 | cut -c 1-17) != "nothing to commit" ]]; then
-      PS1+=" ${RED}✗${RESET}"
+      PS1+=" \[${RED}\]✗\[${RESET}\]"
     else
-      PS1+=" ${GREEN}✔${RESET}"
+      PS1+=" \[${GREEN}\]✔\[${RESET}\]"
     fi
   fi
 
   PS1+="\n"
 
   if [ $EXIT != 0 ]; then
-    PS1+="${RED}\$ ${RESET}"      # Add red if exit code non 0
+    PS1+="\[${RED}\]\$ \[${RESET}\]"      # Add red if exit code non 0
   else
-    PS1+="\$ ${RESET}"
+    PS1+="\$ \[${RESET}\]"
   fi
 }
 
