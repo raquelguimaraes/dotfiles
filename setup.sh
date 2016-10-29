@@ -5,6 +5,7 @@ function create_sym_links {
     ln -sf `pwd`/.bash_prompt ~
     ln -sf `pwd`/.bash_aliases ~
     ln -sf `pwd`/.gitconfig ~
+    ln -sf `pwd`/.tmux.conf ~
 }
 
 function add_source_to_profile {
