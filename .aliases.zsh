@@ -14,4 +14,5 @@ alias git-pull-all='find . -name .git -type d -execdir git pull -r -v ";"'
 
 alias dstop='docker stop $(docker ps -a -q)'
 alias drm='docker rm $(docker ps -a -q)'
+alias dprune='docker system prune --volumes'
 alias drun='(){docker run -it -v `pwd`:/data $1 /bin/bash;}'
