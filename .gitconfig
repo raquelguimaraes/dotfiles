@@ -1,6 +1,3 @@
-[user]
-	name = Raquel Guimaraes
-	email = raquelrag@gmail.com
 [alias]
 	ci = commit
 	co = checkout
@@ -23,3 +20,10 @@
 	insteadOf = https://github.com/
 [init]
 	defaultBranch = main
+
+[includeIf "gitdir:~/Repositories/tw/"]
+    path = .gitconfig-tw
+[includeIf "gitdir:~/Repositories/personal/"]
+    path = .gitconfig-personal
+[includeIf "gitdir:~/Repositories/client/"]
+    path = .gitconfig-client
