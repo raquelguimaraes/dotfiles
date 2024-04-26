@@ -1,5 +1,9 @@
-alias ls='ls -G'
-alias ll='ls -lah'
+alias ls='eza'
+alias ll='eza -la --no-time --group-directories-first'
+alias lt='eza --tree'
+
+alias cat='bat --theme=1337'
+
 alias up='cd ..'
 
 alias grep='grep --color'

@@ -10,14 +10,44 @@
 	cdiff = diff --cached
 	wshow = show --word-diff
 	pr = pull -r
+	dsf = diff --color
+
 [core]
 	editor = vim
+	pager = "diff-so-fancy | less --tabs=4 -RFXS"
+
+[interactive]
+	diffFilter = "diff-so-fancy --patch"
+[pager]
+	show = "diff-so-fancy | less --tabs=1,5 -RFXS"
+
 [color]
 	ui = auto
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	func = 146 bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[diff-so-fancy]
+	markEmptyLines = false
+
 [push]
 	default = simple
+
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
 [init]
 	defaultBranch = main
 
