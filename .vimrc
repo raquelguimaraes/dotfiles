@@ -54,7 +54,7 @@ set hlsearch      " highlight search terms
 set incsearch     " show search matches as you type
 set expandtab     " expand tabs by default
 set showmode      " always show what mode we're currently editing in
-
+set backspace=indent,eol,start
 
 " clear search
 nnoremap <leader><space> :noh<cr>
